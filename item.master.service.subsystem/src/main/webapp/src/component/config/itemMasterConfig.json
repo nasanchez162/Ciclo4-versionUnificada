@@ -1,0 +1,9 @@
+{
+    "displayName" : "Item",
+    "name" : "item",
+    "templateName" : "item",
+    "url" : "item.html",
+    "server": "localhost:8080",
+    "context": "/item.master.service.subsystem/webresources/ItemMaster",
+    "el" : "#main"
+}
