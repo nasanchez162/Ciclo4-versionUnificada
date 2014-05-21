@@ -8,5 +8,8 @@ import co.edu.uniandes.csw.producto.logic.api.IProductoLogicService;
 @Alternative
 @Singleton
 public class ProductoMockLogicService extends _ProductoMockLogicService implements IProductoLogicService {
-	
+	public int getCantidadItems(Long idProducto)
+        {
+            return 0;
+        }
 }

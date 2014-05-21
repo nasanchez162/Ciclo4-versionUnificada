@@ -15,4 +15,8 @@ import co.edu.uniandes.csw.producto.logic.api.IProductoLogicService;
 @LocalBean
 public class ProductoLogicService extends _ProductoLogicService implements IProductoLogicService {
 
+    public int getCantidadItems(Long idProducto)
+    {
+        return persistance.getCantidadItems(idProducto);
+    }
 }
