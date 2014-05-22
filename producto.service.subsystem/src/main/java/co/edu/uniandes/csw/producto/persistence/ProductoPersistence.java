@@ -17,10 +17,19 @@ import javax.persistence.Query;
 public class ProductoPersistence extends _ProductoPersistence  implements IProductoPersistence {
 
     public int getCantidadItems(Long idProducto) {
-        Query q = entityManager.createQuery("select sum(CANTIDADITEM) as C from ITEMENTITY i where i.PRODUCTOAID = " + idProducto);
-        int i = q.executeUpdate();
-        System.out.println("CHISME: " + i);
-        return i;
+       
+       try
+       {
+           Query q = entityManager.createQuery("select sum(CANTIDADITEM) as C from ITEMENTITY i where i.PRODUCTOAID = " + idProducto);
+       
+            int i = q.executeUpdate();
+            System.out.println("CHISME: " + i);
+            return i;
+       }
+       catch( Exception e)
+       {
+           return 0;
+       }
                 
     }
 
