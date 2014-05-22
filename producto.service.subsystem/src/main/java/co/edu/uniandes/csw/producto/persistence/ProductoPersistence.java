@@ -21,14 +21,15 @@ public class ProductoPersistence extends _ProductoPersistence  implements IProdu
        try
        {
            Query q = entityManager.createQuery("select sum(CANTIDADITEM) as C from ITEMENTITY i where i.PRODUCTOAID = " + idProducto);
-       
-            int i = q.executeUpdate();
+            
+            int i = q.getFirstResult();
             System.out.println("CHISME: " + i);
             return i;
        }
        catch( Exception e)
        {
-           return 0;
+           System.out.println("CHISME: " + e.getMessage());
+           return -1;
        }
                 
     }

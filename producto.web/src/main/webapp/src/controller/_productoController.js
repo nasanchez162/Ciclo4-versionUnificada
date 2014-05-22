@@ -60,6 +60,13 @@ define(['model/productoModel'], function(productoModel) {
                 this.productoModelList.fetch({
                     data: data,
                     success: function() {
+                    
+                        _.each(self.productoModelList.models,function(element){
+                        self.getAmmountProduct(element.id,function (data){
+                            element.set({cantidadDisponible: data});
+                        },function(){
+                            console.log("Error");
+                        }); });
                         self._renderList();
                         Backbone.trigger(self.componentId + '-' + 'post-producto-list', {view: self});
                     },
@@ -137,6 +144,19 @@ define(['model/productoModel'], function(productoModel) {
                             }
                         });
             }
+        },
+        getAmmountProduct: function(id, callback, callbackError) {
+            console.log('getAmmountProduct: ' + id);
+            $.ajax({
+                url: '/producto.service.subsystem.web/webresources/Producto/'+id+'/getCantidadItems',
+                type: 'GET',
+                data: {},
+                contentType: 'application/json'
+            }).done(_.bind(function(data) {
+                callback(data);
+            }, this)).error(_.bind(function(data) {
+                callbackError(data);
+            }, this));
         },
         _renderList: function() {
             var self = this;

@@ -8,6 +8,7 @@
 		 <th>minimaCantidad</th>
 		 <th>name</th>
 		 <th>maximaCantidad</th>
+                 <th>Cantidad Disponible </th>
     <th>Actions</th>
     </tr>
     </thead>
@@ -18,6 +19,7 @@
 		<td><%= htmlEncode(producto.getDisplay('minimaCantidad')) %></td>
 		<td><%= htmlEncode(producto.getDisplay('name')) %></td>
 		<td><%= htmlEncode(producto.getDisplay('maximaCantidad')) %></td>
+                <td><%= producto.get('cantidadDisponible') %>  </td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-producto-edit',{id:<%= producto.id %>}); return false" >Edit</a> |
