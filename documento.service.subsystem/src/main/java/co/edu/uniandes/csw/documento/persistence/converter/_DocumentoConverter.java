@@ -17,6 +17,7 @@ public abstract class _DocumentoConverter {
 				dto.setName(entity.getName());
 				dto.setTipo(entity.getTipo());
 				dto.setDescripcion(entity.getDescripcion());
+                                dto.setEstado(entity.getEstado());
 				dto.setAutor(entity.getAutor());
 			return dto;
 		}else{
@@ -31,6 +32,7 @@ public abstract class _DocumentoConverter {
 			entity.setName(dto.getName());
 			entity.setTipo(dto.getTipo());
 			entity.setDescripcion(dto.getDescripcion());
+                        entity.setEstado(dto.getEstado());
 			entity.setAutor(dto.getAutor());
 			return entity;
 		}else {

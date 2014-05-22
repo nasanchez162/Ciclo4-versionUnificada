@@ -7,6 +7,7 @@
 		 <th>name</th>
 		 <th>tipo</th>
 		 <th>descripcion</th>
+                 <th>estado</th>
 		 <th>autor</th>
     <th>Actions</th>
     </tr>
@@ -17,6 +18,7 @@
 		<td><%= htmlEncode(documento.getDisplay('name')) %></td>
 		<td><%= htmlEncode(documento.getDisplay('tipo')) %></td>
 		<td><%= htmlEncode(documento.getDisplay('descripcion')) %></td>
+                <td><%= htmlEncode(documento.getDisplay('estado')) %></td>
 		<td><%= htmlEncode(documento.getDisplay('autor')) %></td>
     <td>
     <% if(showEdit) {%>
@@ -45,11 +47,21 @@
 		</div>
 		<div class="form-group" >
 		<label for="tipo">tipo</label>
-    	<input type="text" class="form-control" id="tipo" name="tipo" placeholder="Enter value" value="<%= documento.get('tipo') %>"/>	
+    	<select class="form-control" id="tipo" name="tipo">	
+            <option value="Orden de despacho" <% if(documento.get('tipo')== "Orden de despacho") {%>selected<%}%> >Orden de despacho</option>
+            <option value="Orden de fabricacion" <% if(documento.get('tipo')== "Orden de fabricación") {%>selected<%}%> >Orden de fabricaci&oacute;n</option>
+        </select>
 		</div>
 		<div class="form-group" >
 		<label for="descripcion">descripcion</label>
     	<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Enter value" value="<%= documento.get('descripcion') %>"/>	
+		</div>
+                <div class="form-group" >
+		<label for="estado">estado</label>
+    	<select class="form-control" id="estado" name="estado" >
+            <option value = "Activo" <% if(documento.get('estado')== "Activo") {%>selected<%}%> >Activo</option>
+            <option value = "Inactivo" <% if(documento.get('estado')== "Inactivo") {%>selected<%}%> >Inactivo</option>
+        </select>
 		</div>
 		<div class="form-group" >
 		<label for="autor">autor</label>
