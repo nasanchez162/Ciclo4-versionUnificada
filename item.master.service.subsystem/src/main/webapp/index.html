@@ -20,50 +20,7 @@
         <script src="./js/vendor/backbone-min.js"></script>
         <script src="./js/vendor/bootstrap-datepicker.js"></script>
         <script data-main="src/main" src="./js/vendor/require.js"></script>
-        <script type="text/template" id="itemList">
-    <div class="panel panel-default">
-    <!-- Default panel contents -->
-    <table class="table striped">
-    <thead>
-    <tr>
-		 <th>cantidadItem</th>
-		 <th>fechaExpiracion</th>
-		 <th>name</th>
-		 <th>precio</th>
-		 <th>Bodega</th>
-		 <th>productoaId</th>
-    <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% _.each(items, function(item) { %>
-    <% var today = new Date();%>
-    <%if (item.get('fechaExpiracion')<today) { %>
-    <tr id="itemExpirado" class="danger" data-toggle="tooltip" data-placement="right" title="Se expiró el item!">
-    <%} else{%>
-    <tr>
-    <%}%>
-
-		<td><%= htmlEncode(item.getDisplay('cantidadItem')) %></td>
-		<td><%= htmlEncode(item.getDisplay('fechaExpiracion')) %></td>
-		<td><%= htmlEncode(item.getDisplay('name')) %></td>
-		<td><%= htmlEncode(item.getDisplay('precio')) %></td>
-		<td><%= htmlEncode(item.getDisplay('bodega')) %></td>
-		<td><%= htmlEncode(item.get('productoaId')) %></td>
-    <td>
-    <% if(showEdit) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-item-edit',{id:<%= item.id %>}); return false" >Edit</a> |
-	<% } %> 
-	<% if(showDelete) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-item-delete',{id:<%= item.id %>}); return false" >Delete</a> 
-	<% } %>    
-	</td>
-    </tr>
-    <% }); %>
-    </tbody>
-    </table>
-    </div>
-</script>
+        
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
           <script src="../../assets/js/html5shiv.js"></script>

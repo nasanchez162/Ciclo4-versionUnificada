@@ -20,6 +20,11 @@
 		<td><%= htmlEncode(producto.getDisplay('name')) %></td>
 		<td><%= htmlEncode(producto.getDisplay('maximaCantidad')) %></td>
                 <td><%= producto.get('cantidadDisponible') %>  </td>
+                 <%var valor = "Borrar-"+producto.getDisplay('id');%>
+            <td> <input type="text" class="form-control" id="<%=valor%>" name="<%=valor%>" placeholder="Cant. a borrar"/>	
+            <button onclick="myFunction(&quot;<%=valor%>&quot;,<%=producto.getDisplay('id')%>,<%= componentId %>)"><img height=24 width=24 src="http://pixabay.com/static/uploads/photo/2013/07/12/12/40/abort-146072_640.png?i"></button>
+     
+            </td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-producto-edit',{id:<%= producto.id %>}); return false" >Edit</a> |
@@ -34,7 +39,12 @@
     </table>
     </div>
 </script>
-
+<script>
+       function myFunction(place,id,componentId)
+        {
+            Backbone.trigger(componentId+"-producto-borrar",{"id":id,"cantidad":document.getElementById(place).value});
+        }
+</script>
 <script type="text/template" id="producto">
     <div class="form-group">
     <form role="form" id="<%= componentId %>-productoForm">

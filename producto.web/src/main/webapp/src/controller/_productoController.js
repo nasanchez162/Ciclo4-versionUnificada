@@ -16,6 +16,14 @@ define(['model/productoModel'], function(productoModel) {
             Backbone.on(this.componentId + '-' + 'producto-create', function(params) {
                 self.create(params);
             });
+            Backbone.on(this.componentId + '-producto-borrar', function(params) {
+                //alert(params.id+" "+params.cantidad)
+                self.deleteItemProductsByNumber(params.id,params.cantidad,function(data){
+                    self.list(params);
+                },function(data){
+                     console.log("Error");
+                })
+            });
             Backbone.on(this.componentId + '-' + 'producto-list', function(params) {
                 self.list(params);
             });
@@ -146,9 +154,22 @@ define(['model/productoModel'], function(productoModel) {
             }
         },
         getAmmountProduct: function(id, callback, callbackError) {
-            console.log('getAmmountProduct: ' + id);
+            console.log('getAmmountProduct llamando a item: ' + id);
             $.ajax({
-                url: '/producto.service.subsystem.web/webresources/Producto/'+id+'/getCantidadItems',
+                url: '/item.service.subsystem.web/webresources/Item/'+id+'/getCantidadItems',
+                type: 'GET',
+                data: {},
+                contentType: 'application/json'
+            }).done(_.bind(function(data) {
+                callback(data);
+            }, this)).error(_.bind(function(data) {
+                callbackError(data);
+            }, this));
+        },
+        deleteItemProductsByNumber: function(id, num, callback, callbackError) {
+            console.log('Probando: ' + id);
+            $.ajax({
+                url: '/item.service.subsystem.web/webresources/Item/'+id+'/'+num+'/deleteItemProductsByNumber',
                 type: 'GET',
                 data: {},
                 contentType: 'application/json'

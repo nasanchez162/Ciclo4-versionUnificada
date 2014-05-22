@@ -28,6 +28,7 @@
 		<td><%= htmlEncode(item.getDisplay('precio')) %></td>
 		<td><%= htmlEncode(item.getDisplay('bodega')) %></td>
 		<td><%= htmlEncode(item.getDisplay('productoaId')) %></td>
+                
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-item-edit',{id:<%= item.id %>}); return false" >Edit</a> |
