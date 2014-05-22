@@ -25,7 +25,10 @@ public abstract class _ItemLogicService implements _IItemLogicService {
 	}
 
 	public void deleteItem(Long id){
-	    persistance.deleteItem(id); 
+	    
+            ItemDTO ac = getItem(id);
+            ac.setCantidadItem(0);
+            updateItem(ac); 
 	}
 
 	public void updateItem(ItemDTO item){

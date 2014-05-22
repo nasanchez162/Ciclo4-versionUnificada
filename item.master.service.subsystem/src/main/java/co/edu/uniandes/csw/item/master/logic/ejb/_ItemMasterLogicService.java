@@ -21,10 +21,21 @@ public abstract class _ItemMasterLogicService implements _IItemMasterLogicServic
 
     public ItemMasterDTO createMasterItem(ItemMasterDTO item) {
         ItemDTO persistedItemDTO = itemPersistance.createItem(item.getItemEntity());
+        
+        DocumentoDTO document= new DocumentoDTO();
+        document.setAutor("Administrador Inventario");
+        document.setDescripcion("Ingresó el item: "+item.getItemEntity().getName()+" en el inventario");
+        document.setEstado("Completado");
+        document.setName("Documento ingreso "+item.getItemEntity().getName());
+        document.setTipo("Reaprovisionamiento");
+        DocumentoDTO persistedDocumentoDTO = documentoPersistance.createDocumento(document);
+        ItemDocumentoEntity itemDocumentoEntity = new ItemDocumentoEntity(persistedItemDTO.getId(), persistedDocumentoDTO.getId());
+        itemMasterPersistance.createItemDocumento(itemDocumentoEntity);
+        
         if (item.getCreateDocumento() != null) {
             for (DocumentoDTO documentoDTO : item.getCreateDocumento()) {
-                DocumentoDTO persistedDocumentoDTO = documentoPersistance.createDocumento(documentoDTO);
-                ItemDocumentoEntity itemDocumentoEntity = new ItemDocumentoEntity(persistedItemDTO.getId(), persistedDocumentoDTO.getId());
+                persistedDocumentoDTO = documentoPersistance.createDocumento(documentoDTO);
+                itemDocumentoEntity = new ItemDocumentoEntity(persistedItemDTO.getId(), persistedDocumentoDTO.getId());
                 itemMasterPersistance.createItemDocumento(itemDocumentoEntity);
             }
         }

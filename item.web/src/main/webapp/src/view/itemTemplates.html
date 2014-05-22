@@ -16,9 +16,11 @@
     <tbody>
     <% _.each(items, function(item) { %>
     <% var today = new Date();%>
-    <%if (item.get('fechaExpiracion')<today) { %>
+    <% if (item.get('cantidadItem')==0){%>
+    <tr id="itemSinExistencias" class="warning" data-toggle="tooltip" data-placement="right" title="No tiene existencias!">
+    <%} else if (item.get('fechaExpiracion')<today) { %>
     <tr id="itemExpirado" class="danger" data-toggle="tooltip" data-placement="right" title="Se expiró el item!">
-    <%} else{%>
+    <% } else { %>
     <tr>
     <%}%>
 

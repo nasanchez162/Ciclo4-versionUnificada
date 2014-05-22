@@ -98,7 +98,8 @@ public class ItemLogicService extends _ItemLogicService implements IItemLogicSer
                         
                         inter = inter - lista.get(i).getCantidadItem();
                         lista.get(i).setCantidadItem(0);
-                        super.persistance.deleteItem(lista.get(i).getId());
+                        //super.persistance.deleteItem(lista.get(i).getId());
+                         super.persistance.updateItem(lista.get(i));
                         
                     }
                     else
