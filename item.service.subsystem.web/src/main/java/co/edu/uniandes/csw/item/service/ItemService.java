@@ -27,4 +27,6 @@ public class ItemService extends _ItemService {
     public Boolean deleteItemProductsByNumber(@PathParam("id") Long id, @PathParam("num") Integer num){
         return itemLogicService.deleteItemProductsByNumber(id,num);
     }
+    
+    
 }
