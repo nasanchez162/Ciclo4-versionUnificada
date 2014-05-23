@@ -22,4 +22,11 @@ public class ProductoService extends _ProductoService {
     public int getCantidadItems(@PathParam("id") Long id){
         return productoLogicService.getCantidadItems(id);
     }
+    
+    @GET
+    @Path("listarProductos")
+    public String listarProductos()
+    {
+        return productoLogicService.listarProductos();
+    }
 }
