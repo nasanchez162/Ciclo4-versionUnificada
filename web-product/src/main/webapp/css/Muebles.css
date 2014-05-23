@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/05/2014, 07:28:26 AM
+    Author     : admin
+*/
+
+body {
+background:url(http://nsae01.casimages.net/img/2014/05/23/140523125546562798.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+div.navbar.navbar-default.navbar-fixed-top {
+    background-color: #FCE673;
+    border-color: #E6BB39;
+    border-radius:  6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    
+    margin-right: 10px;
+}
+    

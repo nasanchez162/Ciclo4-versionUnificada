@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/05/2014, 09:53:29 AM
+    Author     : admin
+*/
+
+nav.navbar.navbar-default {
+    background-color: #FFFFFF;
+    border-color: #B6B6B6;
+    
+}
+div.collapse.navbar-collapse.navbar-ex1-collapse {
+    background-color: #D3D3D3;
+}
+div.container.jumbotron {
+    background-color: #FFF;
+    padding: 30px;
+    font-size: inherit;
+    margin-bottom: 0px;
+    opacity: 0.9;
+    border-radius: 8px;
+}
