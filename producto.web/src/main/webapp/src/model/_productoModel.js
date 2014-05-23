@@ -5,7 +5,8 @@ define([], function() {
 		 'tipo' : '' ,  
 		 'minimaCantidad' : '' ,  
 		 'name' : '' ,  
-		 'maximaCantidad' : ''        },
+		 'maximaCantidad' : '',
+                 'imagen' : 'http://www.acsu.buffalo.edu/~rslaine/imageNotFound.jpg'},
         initialize: function() {
         },
         getDisplay: function(name) {

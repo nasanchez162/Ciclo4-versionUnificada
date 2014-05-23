@@ -136,7 +136,7 @@ public class ItemLogicServiceTest {
 		ItemDTO pdto=data.get(0);
 		itemLogicService.deleteItem(pdto.getId());
         ItemDTO deleted=itemPersistence.getItem(pdto.getId());
-        Assert.assertNull(deleted);
+        Assert.assertEquals(new Integer(0),deleted.getCantidadItem());
 	}
 	
 	@Test
